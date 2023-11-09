@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Profile extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    LinearLayout settings,shippingAddresses;
+    LinearLayout settings,shippingAddresses,paymentMethods;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,14 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Profile.this,ShippingAddresses.class));
+            }
+        });
+
+        paymentMethods = findViewById(R.id.paymentMethods);
+        paymentMethods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this,PaymentMethods.class));
             }
         });
 
