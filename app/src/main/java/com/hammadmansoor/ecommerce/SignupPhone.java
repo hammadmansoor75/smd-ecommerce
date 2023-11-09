@@ -31,5 +31,6 @@ public class SignupPhone extends AppCompatActivity {
                 startActivity(new Intent(SignupPhone.this,SignupEmail.class));
             }
         });
+
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".CustomerSupport">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_marginTop="60dp"
+            android:layout_width="39dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:onClick="back"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+        </View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sales Representative"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:layout_gravity="center"
+            android:paddingHorizontal="40dp"
+            />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="350dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="How can I help You?"
+            android:background="@drawable/rounded_red_button"
+            android:textAlignment="center"
+            android:padding = "10dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="40dp"
+            ></TextView>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_grey_button"
+            android:padding="10dp"
+            android:text="I Want to return a shirt"
+            android:textAlignment="center"
+            android:textColor="@color/white"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey">
+
+        </View>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Type a message"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/grey">
+        </TextView>
+    </LinearLayout>
+
+
+</LinearLayout>
