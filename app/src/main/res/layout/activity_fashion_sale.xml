@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FashionSale"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_marginBottom="170dp"
+            android:src="@drawable/fashion"
+            android:foregroundGravity="top"
+            ></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fasion Sale"
+            android:textColor="@color/white"
+            android:textSize="85sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="210dp"
+            ></TextView>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="430dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rounded_red_button"
+            android:text="Check"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
