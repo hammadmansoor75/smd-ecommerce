@@ -7,48 +7,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Profile extends AppCompatActivity {
+public class CancelledOrders extends AppCompatActivity {
 
+    TextView delivered,processing,cancelled;
     BottomNavigationView bottomNavigationView;
-    LinearLayout settings,shippingAddresses,paymentMethods,myOrders;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_cancelled_orders);
 
-        settings = findViewById(R.id.settings);
-        settings.setOnClickListener(new View.OnClickListener() {
+        delivered = findViewById(R.id.delivered);
+        processing = findViewById(R.id.processing);
+        cancelled = findViewById(R.id.cancelled);
+
+        delivered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this,Settings.class));
+                startActivity(new Intent(CancelledOrders.this, MyOrders.class));
             }
         });
 
-        shippingAddresses = findViewById(R.id.shippingAddresses);
-        shippingAddresses.setOnClickListener(new View.OnClickListener() {
+        processing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this,ShippingAddresses.class));
+                startActivity(new Intent(CancelledOrders.this,ProcessingOrders.class));
             }
         });
 
-        paymentMethods = findViewById(R.id.paymentMethods);
-        paymentMethods.setOnClickListener(new View.OnClickListener() {
+        cancelled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this,PaymentMethods.class));
-            }
-        });
 
-        myOrders = findViewById(R.id.myOrders);
-        myOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Profile.this, MyOrders.class));
             }
         });
 
@@ -60,13 +54,14 @@ public class Profile extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.action_home) {
                     // Handle Home item click
-                    startActivity(new Intent(Profile.this, Home.class));
+                    startActivity(new Intent(CancelledOrders.this, Home.class));
                     return true;
                 } else if (itemId == R.id.action_shop) {
 //                    startActivity(new Intent(HomeScreen.this, SearchScreen.class));
                     return true;
                 } else if (itemId == R.id.action_profile) {
                     // Handle Profile item click
+                    startActivity(new Intent(CancelledOrders.this, Profile.class));
 
                     return true;
                 } else if (itemId == R.id.action_chat) {
