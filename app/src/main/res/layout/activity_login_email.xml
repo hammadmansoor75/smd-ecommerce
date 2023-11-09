@@ -90,7 +90,6 @@
             android:gravity="center"
             android:layout_gravity="right"/>
     </LinearLayout>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,6 +100,7 @@
         android:textSize="14dp"
         android:id="@+id/loginBtn"
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
