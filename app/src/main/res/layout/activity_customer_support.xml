@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".CustomerSupport">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_marginTop="60dp"
+            android:layout_width="39dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:onClick="back"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+        </View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer Support"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:paddingHorizontal="40dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/card"
+            android:text="Call us \n0321-1234567"
+            android:paddingTop="30dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            ></TextView>
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/card"
+            android:text="Email Us \n Support@ShopAll.com"
+            android:paddingTop="30dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            ></TextView>
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_red_button"
+        android:text="Chat With a representative"
+        android:textColor="@color/white"
+        android:id="@+id/Chat"
+        android:onClick="Chat"
+        android:textSize="14dp"
+        />
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            ></View>
+    </LinearLayout>
+</LinearLayout>

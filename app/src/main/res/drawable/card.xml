@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners 
+                android:radius="10dp"/>
+            <solid android:color="@color/primary_red" />
+            <stroke
+                android:color="@color/primary_red"
+                android:width="2dp" /> <!-- Set the border width -->
+            M<!-- Change the color as needed -->
+        </shape>
+    </item>
+</layer-list>

@@ -22,6 +22,9 @@
             android:name=".MyOrders"
             android:exported="false" />
         <activity
+            android:name=".CustomerSupport"
+            android:exported="false" />
+        <activity
             android:name=".AddPaymentMethod"
             android:exported="false" />
         <activity
@@ -44,6 +47,9 @@
             android:exported="false" />
         <activity
             android:name=".Home"
+            android:exported="false" />
+        <activity
+            android:name=".OtpVerification"
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordPhone"
