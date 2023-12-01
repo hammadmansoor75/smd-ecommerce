@@ -1,24 +1,38 @@
 package com.hammadmansoor.ecommerce;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginEmail extends AppCompatActivity {
 
     TextView navigatePass,navigateLoginPhone;
     Button loginBtn;
+    EditText email,password;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_email);
+        mAuth = FirebaseAuth.getInstance();
 
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
         navigatePass = findViewById(R.id.navigatePass);
         navigatePass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +53,19 @@ public class LoginEmail extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginEmail.this,Home.class));
+                mAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString())
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        startActivity(new Intent(LoginEmail.this,Home.class));
+                                    }
+                                }).addOnCanceledListener(new OnCanceledListener() {
+                            @Override
+                            public void onCanceled() {
+                                Toast.makeText(LoginEmail.this, "Something went wrong. Try Again!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
             }
         });
 

@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:textSize="11dp"
+            android:textColor="@color/black"
             android:layout_marginLeft="10dp"/>
         <EditText
             android:layout_width="match_parent"
@@ -44,6 +45,35 @@
             android:textSize="14dp"
             android:inputType="text"
             android:singleLine="true"
+            android:textColor="@color/black"
+            android:id="@+id/name"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth"
+            android:textSize="11dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="date"
+            android:text="01/01/2002"
+            android:textSize="14dp"
+            android:singleLine="true"
+            android:id="@+id/date"
             android:textColor="@color/black"
             android:layout_marginLeft="10dp"
             />
@@ -60,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:textColor="@color/black"
             android:textSize="11dp"
             android:layout_marginLeft="10dp"/>
         <EditText
@@ -68,6 +99,7 @@
             android:background="@null"
             android:inputType="textEmailAddress"
             android:text="muffin.sweet@gmail.com"
+            android:id="@+id/email"
             android:textSize="14dp"
             android:singleLine="true"
             android:textColor="@color/black"
@@ -86,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:textColor="@color/black"
             android:textSize="11dp"
             android:layout_marginLeft="10dp"/>
         <EditText
@@ -95,6 +128,7 @@
             android:text="muffin123"
             android:textSize="14dp"
             android:singleLine="true"
+            android:id="@+id/password"
             android:inputType="textVisiblePassword"
             android:textColor="@color/black"
             android:layout_marginLeft="10dp"
@@ -123,6 +157,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_red_button"
         android:text="SIGN UP"
+        android:id="@+id/signupBtn"
         android:textColor="@color/white"
         android:textSize="14dp"
         />
