@@ -80,7 +80,9 @@
             android:exported="false" />
         <activity
             android:name=".LoginEmail"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".SignupEmail"
             android:exported="true">
@@ -89,6 +91,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <meta-data

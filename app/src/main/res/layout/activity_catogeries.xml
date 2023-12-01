@@ -153,7 +153,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/New"
+                    android:src="@drawable/newpic"
                     android:layout_marginLeft="300dp"
                     ></ImageView>
 
@@ -209,7 +209,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/New"
+                    android:src="@drawable/newpic"
                     android:layout_marginLeft="300dp"
                     ></ImageView>
 
@@ -265,7 +265,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/New"
+                    android:src="@drawable/newpic"
                     android:layout_marginLeft="300dp"
                     ></ImageView>
 

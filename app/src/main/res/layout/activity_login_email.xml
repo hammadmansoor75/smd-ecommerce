@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:textColor="@color/black"
             android:textSize="11dp"
             android:layout_marginLeft="10dp"/>
         <EditText
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:text="Password"
             android:textSize="11dp"
+            android:textColor="@color/black"
             android:layout_marginLeft="10dp"/>
         <EditText
             android:layout_width="match_parent"
