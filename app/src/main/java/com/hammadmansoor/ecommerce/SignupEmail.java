@@ -64,10 +64,13 @@ public class SignupEmail extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                UserModel userModel = new UserModel(name.getText().toString(),email.getText().toString(),date.getText().toString(),mAuth.getUid());
-                                firebaseStorage.createUser(userModel);
-                                startActivity(new Intent(SignupEmail.this,Home.class));
-
+                                if(task.isSuccessful()){
+                                    if(mAuth.getUid() != null){
+                                        UserModel userModel = new UserModel(name.getText().toString(),email.getText().toString(),date.getText().toString(),mAuth.getCurrentUser().getUid());
+                                        firebaseStorage.createUser(userModel);
+                                        startActivity(new Intent(SignupEmail.this,Home.class));
+                                    }
+                                }
                             }
                         }).addOnCanceledListener(new OnCanceledListener() {
                             @Override
@@ -77,7 +80,5 @@ public class SignupEmail extends AppCompatActivity {
                         });
             }
         });
-
-
     }
 }
