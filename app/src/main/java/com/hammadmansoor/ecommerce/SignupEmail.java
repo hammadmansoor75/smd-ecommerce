@@ -68,7 +68,7 @@ public class SignupEmail extends AppCompatActivity {
                                     if(mAuth.getUid() != null){
                                         UserModel userModel = new UserModel(name.getText().toString(),email.getText().toString(),date.getText().toString(),mAuth.getCurrentUser().getUid());
                                         firebaseHelper.createUser(userModel);
-                                        startActivity(new Intent(SignupEmail.this,Home.class));
+                                        startActivity(new Intent(SignupEmail.this, FashionSale.class));
                                     }
                                 }
                             }

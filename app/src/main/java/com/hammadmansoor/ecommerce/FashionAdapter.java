@@ -14,7 +14,7 @@ import java.util.List;
 public class FashionAdapter extends RecyclerView.Adapter<FashionAdapter.ViewHolder> {
     private List<FashionItem> fashionItemList;
 
-    public FashionAdapter(List<FashionItem> fashionItemList) {
+    public FashionAdapter() {
         this.fashionItemList = fashionItemList;
     }
 
@@ -57,6 +57,11 @@ public class FashionAdapter extends RecyclerView.Adapter<FashionAdapter.ViewHold
             priceTextView = itemView.findViewById(R.id.item_price);
         }
     }
+    public void setFashionItems(List<FashionItem> fashionItems) {
+        this.fashionItemList = fashionItems;
+        notifyDataSetChanged();
+    }
+
 }
 
 
