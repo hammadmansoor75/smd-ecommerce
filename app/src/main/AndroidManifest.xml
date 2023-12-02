@@ -29,6 +29,9 @@
             android:name=".AdminLogin"
             android:exported="false" />
         <activity
+            android:name=".Ratings"
+            android:exported="false" />
+        <activity
             android:name=".NewCatalog"
             android:exported="false" />
         <activity
