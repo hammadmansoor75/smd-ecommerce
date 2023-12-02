@@ -24,7 +24,7 @@ public class SignupEmail extends AppCompatActivity {
     EditText name,date,email,password;
     Button signUpBtn;
     FirebaseAuth mAuth;
-    FirebaseStorage firebaseStorage;
+    FirebaseHelper firebaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class SignupEmail extends AppCompatActivity {
         date = findViewById(R.id.date);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        firebaseStorage = new FirebaseStorage();
+        firebaseHelper = new FirebaseHelper();
 
         navigateLogin = findViewById(R.id.navigateLogin);
         navigateLogin.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class SignupEmail extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     if(mAuth.getUid() != null){
                                         UserModel userModel = new UserModel(name.getText().toString(),email.getText().toString(),date.getText().toString(),mAuth.getCurrentUser().getUid());
-                                        firebaseStorage.createUser(userModel);
+                                        firebaseHelper.createUser(userModel);
                                         startActivity(new Intent(SignupEmail.this,Home.class));
                                     }
                                 }

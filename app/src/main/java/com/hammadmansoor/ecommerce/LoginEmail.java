@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginEmail extends AppCompatActivity {
 
-    TextView navigatePass,navigateLoginPhone;
+    TextView navigatePass,navigateLoginPhone,navigateAdminLogin;
     Button loginBtn;
     EditText email,password;
     FirebaseAuth mAuth;
@@ -38,6 +38,14 @@ public class LoginEmail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginEmail.this,ForgotPasswordEmail.class));
+            }
+        });
+
+        navigateAdminLogin = findViewById(R.id.navigateAdminLogin);
+        navigateAdminLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginEmail.this,AdminLogin.class));
             }
         });
 
