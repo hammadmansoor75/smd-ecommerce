@@ -22,6 +22,8 @@
             android:layout_marginTop="20dp"/>
     </LinearLayout>
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,6 +106,15 @@
         android:textSize="14dp"
         android:id="@+id/loginBtn"
         />
+    <ProgressBar
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:outlineAmbientShadowColor="@color/primary_red"
+        android:outlineSpotShadowColor="@color/primary_red"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -111,6 +122,17 @@
         android:layout_marginTop="30dp"
         android:text="Or login with phone number"
         android:id="@+id/navigateLoginPhone"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Or login as an admin"
+        android:id="@+id/navigateAdminLogin"
         android:textSize="14dp"
         android:textColor="@color/black"
         android:layout_gravity="center"
