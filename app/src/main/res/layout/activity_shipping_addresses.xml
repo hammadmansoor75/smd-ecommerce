@@ -46,153 +46,158 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-<!--        card 1-->
-        <androidx.cardview.widget.CardView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:padding="15dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.8"
-                            android:layout_height="wrap_content"
-                            android:text="Jane Doe"
-                            android:textSize="14dp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Edit"
-                            android:id="@+id/editAddress"
-                            android:textColor="@color/primary_red"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="3 Newbridge Court Chino Hills, CA 91709, United States"
-                        android:textSize="14dp"
-                        android:textColor="@color/black"/>
+            android:id="@+id/shippingAddressRV"/>
 
-                    <CheckBox
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/checkBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Use as the shipping address" />
-                </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--&lt;!&ndash;        card 1&ndash;&gt;-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="4dp"-->
+<!--            app:cardBackgroundColor="@color/white">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:padding="15dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_weight="0.8"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Jane Doe"-->
+<!--                            android:textSize="14dp"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textStyle="bold"/>-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Edit"-->
+<!--                            android:id="@+id/editAddress"-->
+<!--                            android:textColor="@color/primary_red"-->
+<!--                            android:textStyle="bold"/>-->
+<!--                    </LinearLayout>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:text="3 Newbridge Court Chino Hills, CA 91709, United States"-->
+<!--                        android:textSize="14dp"-->
+<!--                        android:textColor="@color/black"/>-->
 
-<!--        card 2-->
+<!--                    <CheckBox-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:id="@+id/checkBox"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Use as the shipping address" />-->
+<!--                </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:padding="15dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.8"
-                        android:layout_height="wrap_content"
-                        android:text="Jane Doe"
-                        android:textSize="14dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit"
-                        android:textColor="@color/primary_red"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="3 Newbridge Court Chino Hills, CA 91709, United States"
-                    android:textSize="14dp"
-                    android:textColor="@color/black"/>
+<!--&lt;!&ndash;        card 2&ndash;&gt;-->
 
-                <CheckBox
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/checkBox2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Use as the shipping address" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="4dp"-->
+<!--            app:cardBackgroundColor="@color/white">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:padding="15dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="0.8"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Jane Doe"-->
+<!--                        android:textSize="14dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Edit"-->
+<!--                        android:textColor="@color/primary_red"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                </LinearLayout>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="3 Newbridge Court Chino Hills, CA 91709, United States"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:textColor="@color/black"/>-->
 
-<!--        card 3-->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            android:layout_marginTop="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:padding="15dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.8"
-                        android:layout_height="wrap_content"
-                        android:text="Jane Doe"
-                        android:textSize="14dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit"
-                        android:textColor="@color/primary_red"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="3 Newbridge Court Chino Hills, CA 91709, United States"
-                    android:textSize="14dp"
-                    android:textColor="@color/black"/>
+<!--                <CheckBox-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:id="@+id/checkBox2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Use as the shipping address" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <CheckBox
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Use as the shipping address" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--&lt;!&ndash;        card 3&ndash;&gt;-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            app:cardElevation="4dp"-->
+<!--            app:cardBackgroundColor="@color/white">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:padding="15dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="0.8"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Jane Doe"-->
+<!--                        android:textSize="14dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Edit"-->
+<!--                        android:textColor="@color/primary_red"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                </LinearLayout>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="3 Newbridge Court Chino Hills, CA 91709, United States"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:textColor="@color/black"/>-->
+
+<!--                <CheckBox-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:id="@+id/checkBox3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Use as the shipping address" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
     </LinearLayout>
     
     <TextView

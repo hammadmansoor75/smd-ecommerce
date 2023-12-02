@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddShippingAddress">
+    tools:context=".EditAddress">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
-            android:text="Adding Shipping Address"
+            android:text="Edit Shipping Address"
             android:textSize="18dp"
             android:gravity="center"
             android:textStyle="bold"
@@ -250,4 +250,5 @@
             />
 
     </LinearLayout>
+
 </LinearLayout>
