@@ -50,9 +50,9 @@ public class FashionSale extends AppCompatActivity {
                     String description = snapshot.child("description").getValue(String.class);
                     String price = snapshot.child("price").getValue(String.class);
 
-                     Create FashionItem object and add to the list
-                    FashionItem fashionItem = new FashionItem(imageUrl, itemName, description, price);
-                    fashionItems.add(fashionItem);
+//                     Create FashionItem object and add to the list
+//                    FashionItem fashionItem = new FashionItem(imageUrl, itemName, description, price);
+//                    fashionItems.add(fashionItem);
                 }
 
                 // Update the adapter with the fetched data
