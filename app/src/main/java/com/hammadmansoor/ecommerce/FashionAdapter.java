@@ -14,7 +14,7 @@ import java.util.List;
 public class FashionAdapter extends RecyclerView.Adapter<FashionAdapter.ViewHolder> {
     private List<FashionItem> fashionItemList;
 
-    public FashionAdapter() {
+    public FashionAdapter(List<FashionItem> fashionItemList) {
         this.fashionItemList = fashionItemList;
     }
 
@@ -30,13 +30,14 @@ public class FashionAdapter extends RecyclerView.Adapter<FashionAdapter.ViewHold
         FashionItem fashionItem = fashionItemList.get(position);
 
         // Set data to views in the ViewHolder
-        holder.imageView.setImageResource(fashionItem.getImageResource());
+        holder.imageView.setImageBitmap(fashionItem.getImageBitmap());
         holder.titleTextView.setText(fashionItem.getTitle());
         holder.descriptionTextView.setText(fashionItem.getDescription());
         holder.priceTextView.setText(fashionItem.getPrice());
 
         // You can add click listeners or other customizations here
     }
+
 
     @Override
     public int getItemCount() {
@@ -57,11 +58,9 @@ public class FashionAdapter extends RecyclerView.Adapter<FashionAdapter.ViewHold
             priceTextView = itemView.findViewById(R.id.item_price);
         }
     }
+
     public void setFashionItems(List<FashionItem> fashionItems) {
         this.fashionItemList = fashionItems;
         notifyDataSetChanged();
     }
-
 }
-
-

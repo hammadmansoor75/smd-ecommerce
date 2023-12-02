@@ -1,20 +1,28 @@
 package com.hammadmansoor.ecommerce;
 
+import android.graphics.Bitmap;
+
 public class FashionItem {
-    private int imageResource;
+    private Bitmap imageBitmap; // Updated to use Bitmap instead of imageResource
     private String title;
     private String description;
     private String price;
 
-    public FashionItem(int imageResource, String title, String description, String price) {
-        this.imageResource = imageResource;
+    public FashionItem(Bitmap imageBitmap, String title, String description, String price) {
+        this.imageBitmap = imageBitmap;
         this.title = title;
         this.description = description;
         this.price = price;
     }
 
-    public int getImageResource() {
-        return imageResource;
+    // Getter for imageBitmap
+    public Bitmap getImageBitmap() {
+        return imageBitmap;
+    }
+
+    // Setter for imageBitmap
+    public void setImageBitmap(Bitmap imageBitmap) {
+        this.imageBitmap = imageBitmap;
     }
 
     public String getTitle() {
@@ -28,4 +36,6 @@ public class FashionItem {
     public String getPrice() {
         return price;
     }
+
+
 }

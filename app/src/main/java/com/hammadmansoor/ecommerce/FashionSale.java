@@ -1,6 +1,8 @@
 package com.hammadmansoor.ecommerce;
 
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +15,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import helper.ImageUploadHelper;
+
 public class FashionSale extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
@@ -24,7 +28,7 @@ public class FashionSale extends AppCompatActivity {
         setContentView(R.layout.activity_fashion_sale);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        fashionAdapter = new FashionAdapter();
+        fashionAdapter = new FashionAdapter(new ArrayList<>());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(fashionAdapter);
@@ -35,7 +39,6 @@ public class FashionSale extends AppCompatActivity {
         // Fetch data from Firebase and update the adapter
         fetchFashionItems();
     }
-
 
     private void fetchFashionItems() {
         // Attach a listener to read the data at our fashionItems reference
@@ -50,9 +53,12 @@ public class FashionSale extends AppCompatActivity {
                     String description = snapshot.child("description").getValue(String.class);
                     String price = snapshot.child("price").getValue(String.class);
 
-//                     Create FashionItem object and add to the list
-//                    FashionItem fashionItem = new FashionItem(imageUrl, itemName, description, price);
-//                    fashionItems.add(fashionItem);
+                    // Create FashionItem object with a placeholder image resource
+                    FashionItem fashionItem = new FashionItem(null, itemName, description, price);
+                    fashionItems.add(fashionItem);
+
+                    // Now, load the actual image from Firebase Storage using the imageUrl
+                    loadImageFromFirebase(imageUrl, fashionItem);
                 }
 
                 // Update the adapter with the fetched data
@@ -65,4 +71,22 @@ public class FashionSale extends AppCompatActivity {
             }
         });
     }
-}
+
+    private void loadImageFromFirebase(String imageUrl, FashionItem fashionItem) {
+        // Use the ImageUploadHelper to download the image from Firebase Storage
+        ImageUploadHelper imageUploadHelper = new ImageUploadHelper(this);
+        imageUploadHelper.downloadImage(imageUrl)
+                .addOnSuccessListener(bitmap -> {
+                    // Set the downloaded image to the FashionItem
+                    fashionItem.setImageBitmap(bitmap);
+                    // Notify the adapter that data has changed
+                    fashionAdapter.notifyDataSetChanged();
+                })
+                .addOnFailureListener(e -> {
+                    // Handle the image download failure
+                    Toast.makeText(FashionSale.this, "Image download failed", Toast.LENGTH_LONG).show();
+                });
+    }
+
+    }
+
