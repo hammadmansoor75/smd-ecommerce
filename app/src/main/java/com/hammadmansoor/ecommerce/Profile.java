@@ -8,17 +8,25 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import helper.UserHelper;
+import utils.UserModel;
 
 public class Profile extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    FirebaseAuth mAuth;
     LinearLayout settings,shippingAddresses,paymentMethods,myOrders;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        mAuth = FirebaseAuth.getInstance();
+        retrieveUserData(mAuth.getUid());
 
         settings = findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +88,33 @@ public class Profile extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+    }
+
+
+    private void retrieveUserData(String userId) {
+
+        UserHelper.getUserData(userId, new UserHelper.OnUserDataListener() {
+            @Override
+            public void onUserDataLoaded(UserModel document) {
+                TextView profileName = findViewById(R.id.profileName);
+                TextView profileEmail = findViewById(R.id.profileEmail);
+
+                profileName.setText(document.getName());
+                profileEmail.setText(document.getEmail());
+            }
+
+            @Override
+            public void onUserDataNotFound() {
+                // Handle case when user data is not found
+
+            }
+
+            @Override
+            public void onUserDataError(Exception e) {
+                // Handle error loading user data
+
             }
         });
     }

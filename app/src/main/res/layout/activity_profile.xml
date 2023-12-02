@@ -46,12 +46,14 @@
                 android:text="Matilda Brown"
                 android:textSize="18dp"
                 android:textStyle="bold"
+                android:id="@+id/profileName"
                 android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="matildabrown@gmail.com"
+                android:id="@+id/profileEmail"
                 android:textSize="14dp"
                 android:textStyle="normal"
                 android:textColor="#9b9b9b"/>
