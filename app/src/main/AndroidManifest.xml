@@ -17,6 +17,11 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".productCard"
+            android:exported="false"
+            android:label="@string/title_activity_product_card"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".EditAddress"
             android:exported="false" />
         <activity
