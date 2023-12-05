@@ -2,6 +2,7 @@ package helper;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Toast;
@@ -76,6 +77,32 @@ public class ImageUploadHelper {
             e.printStackTrace();
             taskCompletionSource.setException(e);
         }
+
+        return taskCompletionSource.getTask();
+    }
+
+    public Task<Bitmap> downloadImage(String imageUrl) {
+        final TaskCompletionSource<Bitmap> taskCompletionSource = new TaskCompletionSource<>();
+
+        // Parse the image URL to get the path in Firebase Storage
+        Uri uri = Uri.parse(imageUrl);
+        String path = uri.getPath();
+
+        // Get a reference to the image in Firebase Storage
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference(path);
+
+        // Download the image as a byte array
+        final long ONE_MEGABYTE = 1024 * 1024;
+        storageRef.getBytes(ONE_MEGABYTE)
+                .addOnSuccessListener(bytes -> {
+                    // Convert the byte array to a Bitmap
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    taskCompletionSource.setResult(bitmap);
+                })
+                .addOnFailureListener(exception -> {
+                    // Handle the download failure
+                    taskCompletionSource.setException(exception);
+                });
 
         return taskCompletionSource.getTask();
     }
