@@ -17,26 +17,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapters.PaymentMethodsAdapter;
-import adapters.ShippingAddressAdapter;
 import utils.PaymentMethodModel;
-import utils.ShippingAddressModel;
 
 public class PaymentMethods extends AppCompatActivity {
     ImageView navigateProfile;
     TextView addPaymentMethod;
     RecyclerView paymentMethodsRV;
     PaymentMethodsAdapter paymentMethodsAdapter;
-    List<PaymentMethodModel> paymentMethods;
+    List<PaymentMethodModel> paymentMethodsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_methods);
         paymentMethodsRV = findViewById(R.id.paymentMethodsRV);
-        paymentMethods = new ArrayList<PaymentMethodModel>();
-        paymentMethodsAdapter = new PaymentMethodsAdapter(paymentMethods);
+        paymentMethodsList = new ArrayList<PaymentMethodModel>();
+        paymentMethodsAdapter = new PaymentMethodsAdapter(paymentMethodsList);
         paymentMethodsRV.setLayoutManager(new LinearLayoutManager(this));
         paymentMethodsRV.setAdapter(paymentMethodsAdapter);
+        getUserPaymentMethods();
 
 
         navigateProfile = findViewById(R.id.navigateProfile);
@@ -62,9 +61,9 @@ public class PaymentMethods extends AppCompatActivity {
             @Override
             public void onPaymentMethodsLoaded(List<PaymentMethodModel> paymentMethods) {
                 Log.d(TAG, "Number of payment methods received: " + paymentMethods.size());
-                paymentMethods.clear();
+                paymentMethodsList.clear();
                 // Add the new addresses to the list
-                paymentMethods.addAll(paymentMethods);
+                paymentMethodsList.addAll(paymentMethods);
                 // Notify the adapter about the data change
                 paymentMethodsAdapter.notifyDataSetChanged();
                 Log.v(TAG, "Payment Methods RECEIVED IN Payment Methods CLASS");

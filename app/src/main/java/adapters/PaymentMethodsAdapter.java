@@ -37,6 +37,7 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<PaymentMethodsAd
     public void onBindViewHolder(@NonNull PaymentMethodsAdapter.ViewHolder holder, int position) {
         Log.d(TAG, "Binding item at position: " + position);
         PaymentMethodModel paymentMethodModel = paymentMethods.get(position);
+        Log.d(TAG,paymentMethodModel.toString());
 //        Log.d(TAG, paymentMethodModel.getAddressId() + position);
         holder.name.setText(paymentMethodModel.getName());
         holder.cardNumber.setText(paymentMethodModel.getCardNumber());

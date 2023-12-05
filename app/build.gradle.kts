@@ -35,8 +35,9 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation ("com.google.firebase:firebase-analytics:19.0.2")
-    implementation ("com.google.firebase:firebase-database:20.0.3")
+    implementation ("com.google.firebase:firebase-database:20.3.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

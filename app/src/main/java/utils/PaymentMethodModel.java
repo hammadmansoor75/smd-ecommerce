@@ -41,4 +41,14 @@ public class PaymentMethodModel {
     public void setCvv(String cvv) {
         this.cvv = cvv;
     }
+
+    @Override
+    public String toString() {
+        return "PaymentMethodModel{" +
+                "name='" + name + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", expireDate='" + expireDate + '\'' +
+                ", cvv='" + cvv + '\'' +
+                '}';
+    }
 }

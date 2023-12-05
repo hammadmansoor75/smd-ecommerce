@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Locale;
 
 import utils.PaymentMethodModel;
+import utils.ProductModel;
 import utils.ShippingAddressModel;
 import utils.UserModel;
 
@@ -40,9 +42,11 @@ public class FirebaseHelper {
     FirebaseFirestore firestore;
     FirebaseUser mAuth;
 
+    FirebaseStorage storage;
     FirebaseHelper(){
         this.firestore = FirebaseFirestore.getInstance();
         this.mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        this.storage = FirebaseStorage.getInstance();
     }
 
 
@@ -175,4 +179,48 @@ public class FirebaseHelper {
     }
 
 
+
+    public interface OnProductsCompleteListener {
+        void onProductsLoadSuccess(List<ProductModel> products);
+
+        void onProductsLoadFailure(String errorMessage);
+    }
+
+
+    public void getProducts(OnProductsCompleteListener listener) {
+        firestore.collection("products")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<ProductModel> productList = new ArrayList<>();
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        String name = documentSnapshot.getString("name");
+                        String category = documentSnapshot.getString("category");
+                        String imageUrl = documentSnapshot.getString("imageUrl");
+                        String price = documentSnapshot.getString("price");
+                        String description = documentSnapshot.getString("description");
+                        ProductModel productModel = new ProductModel(name,description,category,imageUrl,price);
+                        Log.v(TAG,productModel.toString());
+                        productList.add(productModel);
+                    }
+                    listener.onProductsLoadSuccess(productList);
+                })
+                .addOnFailureListener(e -> {
+                    listener.onProductsLoadFailure("Error loading products: " + e.getMessage());
+                });
+    }
+
+
+    public interface OnImageDownloadCompleteListener {
+        void onImageDownloadSuccess(byte[] imageData);
+
+        void onImageDownloadFailure(String errorMessage);
+    }
+
+    public void downloadImage(String imageUrl, OnImageDownloadCompleteListener listener) {
+        StorageReference storageRef = storage.getReferenceFromUrl(imageUrl);
+        final long ONE_MEGABYTE = 1024 * 1024;
+        storageRef.getBytes(ONE_MEGABYTE)
+                .addOnSuccessListener(bytes -> listener.onImageDownloadSuccess(bytes))
+                .addOnFailureListener(e -> listener.onImageDownloadFailure("Error downloading image: " + e.getMessage()));
+    }
 }

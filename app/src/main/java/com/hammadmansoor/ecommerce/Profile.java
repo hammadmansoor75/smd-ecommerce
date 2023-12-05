@@ -2,7 +2,9 @@ package com.hammadmansoor.ecommerce;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ public class Profile extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FirebaseAuth mAuth;
     LinearLayout settings,shippingAddresses,paymentMethods,myOrders;
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,7 @@ public class Profile extends AppCompatActivity {
         });
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setItemIconTintList(ContextCompat.getColorStateList(this,R.drawable.item_selector));
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,7 +75,7 @@ public class Profile extends AppCompatActivity {
                     startActivity(new Intent(Profile.this, Home.class));
                     return true;
                 } else if (itemId == R.id.action_shop) {
-//                    startActivity(new Intent(HomeScreen.this, SearchScreen.class));
+                    startActivity(new Intent(Profile.this, Shop.class));
                     return true;
                 } else if (itemId == R.id.action_profile) {
                     // Handle Profile item click
@@ -79,12 +83,12 @@ public class Profile extends AppCompatActivity {
                     return true;
                 } else if (itemId == R.id.action_chat) {
                     // Handle Profile item click
-//                    startActivity(new Intent(HomeScreen.this, ChatScreen.class));
+                    startActivity(new Intent(Profile.this, Chat.class));
                     return true;
                 }
                 else if (itemId == R.id.action_bag) {
                     // Handle Profile item click
-//                    startActivity(new Intent(HomeScreen.this,AddItemScreen.class));
+                    startActivity(new Intent(Profile.this,Bag.class));
                     return true;
                 }
                 return false;

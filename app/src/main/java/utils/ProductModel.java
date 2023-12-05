@@ -1,7 +1,18 @@
 package utils;
 
-public class ProductModel {
+import java.io.Serializable;
+
+public class ProductModel implements Serializable {
     String name,description,category,imageUrl,price;
+    byte[] imageData;
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
 
     public ProductModel(String name, String description, String category, String imageUrl, String price) {
         this.name = name;
@@ -49,5 +60,16 @@ public class ProductModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductModel{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }
