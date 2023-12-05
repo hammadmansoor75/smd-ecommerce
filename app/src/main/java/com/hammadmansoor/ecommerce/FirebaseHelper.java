@@ -198,7 +198,9 @@ public class FirebaseHelper {
                         String imageUrl = documentSnapshot.getString("imageUrl");
                         String price = documentSnapshot.getString("price");
                         String description = documentSnapshot.getString("description");
+                        String productId = documentSnapshot.getId();
                         ProductModel productModel = new ProductModel(name,description,category,imageUrl,price);
+                        productModel.setProductId(productId);
                         Log.v(TAG,productModel.toString());
                         productList.add(productModel);
                     }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class ProductModel implements Serializable {
     String name,description,category,imageUrl,price;
+    String productId;
     byte[] imageData;
 
     public byte[] getImageData() {
@@ -12,6 +13,14 @@ public class ProductModel implements Serializable {
 
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public ProductModel(String name, String description, String category, String imageUrl, String price) {

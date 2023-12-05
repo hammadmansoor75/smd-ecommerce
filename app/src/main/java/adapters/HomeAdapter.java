@@ -1,6 +1,7 @@
 package adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hammadmansoor.ecommerce.Home;
+import com.hammadmansoor.ecommerce.ProductDetails;
 import com.hammadmansoor.ecommerce.R;
 
 import java.util.List;
@@ -21,6 +23,14 @@ import utils.ProductModel;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     private Context context;
     private List<ProductModel> productList;
+
+    public List<ProductModel> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<ProductModel> productList) {
+        this.productList = productList;
+    }
 
     public HomeAdapter(Context context, List<ProductModel> productList){
         this.context = context;
@@ -46,6 +56,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
                 .load(product.getImageUrl())
                 .placeholder(R.drawable.newpic)
                 .into(holder.itemImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProductDetails(product);
+            }
+        });
+    }
+
+    private void openProductDetails(ProductModel product) {
+        Intent intent = new Intent(context, ProductDetails.class);
+        intent.putExtra("product", product);
+        context.startActivity(intent);
     }
 
     @Override

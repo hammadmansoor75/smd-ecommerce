@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Shop">
+    tools:context=".ProductDetails"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_gravity="center"
-            android:id="@+id/navigateProfile"
+            android:id="@+id/navigateShop"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_arrow_back_ios_24"/>
 
@@ -26,43 +26,54 @@
             android:layout_width="0dp"
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
-            android:text="Our Products"
+            android:text="Product Title"
             android:textSize="18dp"
             android:gravity="center"
             android:textStyle="bold"
+            android:id="@+id/productTitle"
             android:textColor="@color/black"/>
 
-        <SearchView
-            android:layout_width="wrap_content"
+        <View
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search"
-            android:id="@+id/searchView"/>
+            android:layout_weight="0.1"/>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/newpic"
+        android:id="@+id/productImage"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:text="20$"
+        android:padding="15dp"
+        android:id="@+id/productPrice"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:padding="15dp"
+        android:text="Description"
+        android:id="@+id/productDesc"/>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recycler_view"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:orientation="vertical"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        app:menu="@menu/bottom_navigation_menu"
-        app:labelVisibilityMode="labeled"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemIconTint="@drawable/item_selector"
+        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_red_button"
+        android:text="Add to Cart"
+        android:id="@+id/addToCart"
+        android:textColor="@color/white"
+        android:textSize="14dp"
         />
 
 </LinearLayout>

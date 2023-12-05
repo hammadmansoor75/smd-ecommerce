@@ -71,7 +71,7 @@ public class LoginEmail extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         progressBar.setVisibility(View.INVISIBLE);
-                                        startActivity(new Intent(LoginEmail.this, FashionSale.class));
+                                        startActivity(new Intent(LoginEmail.this, Home.class));
                                     }
                                 }).addOnCanceledListener(new OnCanceledListener() {
                             @Override
