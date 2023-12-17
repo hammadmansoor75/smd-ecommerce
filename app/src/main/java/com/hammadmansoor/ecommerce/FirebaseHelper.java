@@ -25,6 +25,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -32,7 +34,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
+import utils.CartItemModel;
 import utils.PaymentMethodModel;
 import utils.ProductModel;
 import utils.ShippingAddressModel;
@@ -74,6 +78,20 @@ public class FirebaseHelper {
                 .collection("addresses")
                 .add(shippingAddress).
                 addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+
+                    }
+                });
+    }
+
+
+    public void addCartItem(CartItemModel cartItem){
+        firestore.collection("cart_items")
+                .document(mAuth.getUid())
+                .collection("items")
+                .add(cartItem)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
 
@@ -224,5 +242,50 @@ public class FirebaseHelper {
         storageRef.getBytes(ONE_MEGABYTE)
                 .addOnSuccessListener(bytes -> listener.onImageDownloadSuccess(bytes))
                 .addOnFailureListener(e -> listener.onImageDownloadFailure("Error downloading image: " + e.getMessage()));
+    }
+
+
+    public interface OnCartItemsCompleteListener {
+        void onCartItemsLoadSuccess(List<CartItemModel> cartItems);
+
+        void onCartItemsFailure(String errorMessage);
+    }
+
+    public void getCartItems(OnCartItemsCompleteListener listener) {
+        firestore.collection("cart_items").document(mAuth.getUid()).collection("items").get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<CartItemModel> cartItems = new ArrayList<>();
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        String color = documentSnapshot.getString("color");
+                        Long quantityLong = documentSnapshot.getLong("quantity");
+                        int quantity = 1;
+                        if(quantityLong != null){
+                            quantity = quantityLong.intValue();
+                        }
+                        String size = documentSnapshot.getString("size");
+                        Map<String, Object> productData = (Map<String, Object>) documentSnapshot.get("product");
+                        ProductModel product;
+                        if (productData != null) {
+                            String name = (String) productData.get("name");
+                            String category = (String) productData.get("category");
+                            String imageUrl = (String) productData.get("imageUrl");
+                            String price = (String) productData.get("price");
+                            String description = (String) productData.get("description");
+
+                            // Create and return a new ProductModel instance
+                            product =  new ProductModel(name, category, imageUrl, price, description);
+                            String cartItemId = documentSnapshot.getId();
+                            CartItemModel cartItem = new CartItemModel(product,size,color,quantity);
+                            cartItem.setCartItemId(cartItemId);
+                            Log.v(TAG,cartItem.toString());
+                            cartItems.add(cartItem);
+                        }
+
+                    }
+                    listener.onCartItemsLoadSuccess(cartItems);
+                })
+                .addOnFailureListener(e -> {
+                    listener.onCartItemsFailure("Error loading products: " + e.getMessage());
+                });
     }
 }

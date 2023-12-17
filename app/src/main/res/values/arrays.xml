@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="size_options">
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+        <!-- Add more size options as needed -->
+    </string-array>
+
+    <string-array name="color_options">
+        <item>Gray</item>
+        <item>White</item>
+        <item>Navy</item>
+        <item>Black</item>
+        <!-- Add more color options as needed -->
+    </string-array>
+</resources>

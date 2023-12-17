@@ -19,17 +19,28 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:src="@drawable/fashion"
-
             android:scaleType="centerCrop"/>
     </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="New Products"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_below="@+id/screenHeader"
+        android:id="@+id/newProductsHeading"
+        android:textStyle="bold"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:layout_below="@+id/screenHeader"
+            android:layout_below="@+id/newProductsHeading"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/recycler_view"
         />
